@@ -1,0 +1,79 @@
+#!/usr/bin/env bash
+set -Eeuo pipefail
+
+SHA="${1:-}"
+[[ "$SHA" =~ ^[0-9a-f]{40}$ ]] || { echo "Expected a full commit SHA" >&2; exit 2; }
+
+BASE=/var/www/klug
+RELEASES="$BASE/releases"
+RELEASE="$RELEASES/$SHA"
+WORK="$(mktemp -d "$BASE/.build-$SHA.XXXXXX")"
+LOCK=/var/lock/klug-deploy.lock
+exec 9>"$LOCK"
+flock 9
+trap 'rm -rf "$WORK"' EXIT
+
+mkdir -p "$RELEASES"
+if [[ -e "$RELEASE" ]]; then
+    echo "Release $SHA already exists; skipping"
+    exit 0
+fi
+
+git clone --quiet https://github.com/AmirMehrabi/KLUG.git "$WORK/repo"
+git -C "$WORK/repo" fetch --quiet origin master
+HEAD_SHA="$(git -C "$WORK/repo" rev-parse origin/master)"
+if [[ "$HEAD_SHA" != "$SHA" ]]; then
+    echo "Ignoring stale webhook for $SHA; main is now $HEAD_SHA"
+    exit 0
+fi
+git -C "$WORK/repo" checkout --quiet --detach "$SHA"
+mkdir "$RELEASE"
+git -C "$WORK/repo" archive "$SHA" | tar -x -C "$RELEASE"
+
+ln -s /var/www/klug/shared/.env "$RELEASE/.env"
+rm -rf "$RELEASE/storage"
+ln -s /var/www/klug/shared/storage "$RELEASE/storage"
+mkdir -p "$RELEASE/bootstrap/cache"
+
+cd "$RELEASE"
+composer install --no-dev --no-interaction --prefer-dist --optimize-autoloader
+npm ci --no-audit --no-fund
+npm run build
+rm -rf node_modules
+
+php artisan migrate --force
+php artisan config:cache
+php artisan route:cache
+php artisan view:cache
+
+if [[ ! -e "$RELEASE/public/storage" ]]; then
+    ln -s /var/www/klug/shared/storage/app/public "$RELEASE/public/storage"
+fi
+
+chown -R ammir:www-data "$RELEASE"
+find "$RELEASE" -type d -exec chmod 755 {} +
+find "$RELEASE" -type f -exec chmod 644 {} +
+chmod 755 "$RELEASE/artisan"
+chmod -R 775 /var/www/klug/shared/storage "$RELEASE/bootstrap/cache"
+
+PREVIOUS=""
+if [[ -L "$BASE/current" ]]; then
+    PREVIOUS="$(readlink -f "$BASE/current")"
+fi
+ln -s "$RELEASE" "$BASE/current.next"
+mv -Tf "$BASE/current.next" "$BASE/current"
+
+if ! curl --fail --silent --show-error --max-time 20 --resolve klug.ir:443:127.0.0.1 --insecure https://klug.ir/ >/dev/null; then
+    echo "Health check failed after switching to $SHA" >&2
+    if [[ -n "$PREVIOUS" ]]; then
+        ln -s "$PREVIOUS" "$BASE/current.rollback"
+        mv -Tf "$BASE/current.rollback" "$BASE/current"
+    else
+        rm -f "$BASE/current"
+    fi
+    exit 1
+fi
+
+echo "Activated release $SHA"
+find "$RELEASES" -mindepth 1 -maxdepth 1 -type d -printf '%T@ %p\n' \
+    | sort -nr | tail -n +6 | cut -d' ' -f2- | xargs -r rm -rf
