@@ -50,9 +50,10 @@ class Handler(BaseHTTPRequestHandler):
             return
 
         sha = payload.get("after", "")
+        ref = payload.get("ref", "")
         if (
             payload.get("repository", {}).get("full_name", "") != REPO
-            or payload.get("ref") != "refs/heads/master"
+            or ref not in {"refs/heads/main", "refs/heads/master"}
             or not re.fullmatch(r"[0-9a-f]{40}", sha)
         ):
             self.send_response(202)
@@ -61,7 +62,7 @@ class Handler(BaseHTTPRequestHandler):
 
         with open(DEPLOY_LOG, "ab", buffering=0) as log:
             subprocess.Popen(
-                [DEPLOY_SCRIPT, sha],
+                [DEPLOY_SCRIPT, sha, ref.removeprefix("refs/heads/")],
                 stdin=subprocess.DEVNULL,
                 stdout=log,
                 stderr=subprocess.STDOUT,

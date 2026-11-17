@@ -11,7 +11,7 @@ The webhook receiver listens only on `127.0.0.1:9017`; Nginx exposes
 `https://klug.ir/github-webhook`. Configure a GitHub webhook for the
 `AmirMehrabi/KLUG` repository with the server's `GITHUB_WEBHOOK_SECRET`, JSON
 content type, and the **Just the push event** option. The receiver validates
-GitHub's SHA-256 HMAC and accepts pushes to `master` only.
+GitHub's SHA-256 HMAC and accepts pushes to `main` or `master`.
 
 After each successful health check, the active deployment updates the
 persistent deploy script from that release. The webhook service uses cache and

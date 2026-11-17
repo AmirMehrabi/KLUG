@@ -2,7 +2,9 @@
 set -Eeuo pipefail
 
 SHA="${1:-}"
+BRANCH="${2:-master}"
 [[ "$SHA" =~ ^[0-9a-f]{40}$ ]] || { echo "Expected a full commit SHA" >&2; exit 2; }
+[[ "$BRANCH" == "main" || "$BRANCH" == "master" ]] || { echo "Unsupported branch" >&2; exit 2; }
 
 BASE=/var/www/klug
 RELEASES="$BASE/releases"
@@ -19,10 +21,10 @@ if [[ -e "$RELEASE" ]]; then
     exit 0
 fi
 
-git clone --quiet --depth=1 --branch master https://github.com/AmirMehrabi/KLUG.git "$WORK/repo"
+git clone --quiet --depth=1 --branch "$BRANCH" https://github.com/AmirMehrabi/KLUG.git "$WORK/repo"
 HEAD_SHA="$(git -C "$WORK/repo" rev-parse HEAD)"
 if [[ "$HEAD_SHA" != "$SHA" ]]; then
-    echo "Ignoring stale webhook for $SHA; main is now $HEAD_SHA"
+    echo "Ignoring stale webhook for $SHA; $BRANCH is now $HEAD_SHA"
     exit 0
 fi
 git -C "$WORK/repo" checkout --quiet --detach "$SHA"
