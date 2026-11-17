@@ -1,0 +1,361 @@
+[
+  {
+    "number": 14,
+    "date": "2026-01-08",
+    "start_time": null,
+    "end_time": null,
+    "timezone": "Asia/Tehran",
+    "status": "announced",
+    "format": "in_person",
+    "venue": "کارخانهٔ نوآوری کرمان",
+    "address": null,
+    "map_url": null,
+    "online_url": null,
+    "registration_url": "https://evnd.co/iZhbm",
+    "description": "رایانش بدون سرور (Serverless Computing)؛ معماری، مقیاس‌پذیری و آیندهٔ بارهای کاری هوش مصنوعی",
+    "agenda": [
+      {
+        "title": "رایانش بدون سرور (Serverless Computing)؛ معماری، مقیاس‌پذیری و آیندهٔ بارهای کاری هوش مصنوعی",
+        "speaker": null,
+        "minutes": null
+      }
+    ],
+    "source_posts": [],
+    "notes": "در اطلاعیه، ثبت‌نام برای هماهنگی بهتر درخواست شده بود. ساعت برگزاری و نام ارائه‌دهنده در متن ارائه‌شده مشخص نشده است.",
+    "slug": "meeting-14",
+    "title": "نشست چهاردهم کرمان‌لاگ",
+    "source_type": "user-supplied-announcement",
+    "host": "آوینوکس",
+    "details": [
+      "در این ارائه، به‌صورت مفهومی و کاربردی با Serverless Computing آشنا می‌شویم؛ این‌که رایانش بدون سرور دقیقاً چیست، چه تفاوتی با معماری‌های سنتی و مبتنی بر سرور دارد، و چگونه باعث ساده‌تر شدن توسعه، کاهش هزینه‌ها و افزایش مقیاس‌پذیری سیستم‌ها می‌شود.",
+      "سپس به بررسی معماری Serverless، نحوهٔ اجرای توابع در مقیاس بالا، نقش لینوکس و فناوری‌های متن‌باز در زیرساخت‌های Serverless، و جایگاه آن در پلتفرم‌های ابری مدرن می‌پردازیم. در ادامه، نگاهی خواهیم داشت به این‌که چرا Serverless به یکی از گزینه‌های جدی برای اجرای بارهای کاری هوش مصنوعی (AI Workloads) تبدیل شده و آیندهٔ این ترکیب به چه سمتی می‌رود."
+    ],
+    "audience": [
+      "کاربران لینوکس و علاقه‌مندان به زیرساخت و کلود",
+      "توسعه‌دهندگان بک‌اند و علاقه‌مندان معماری نرم‌افزار",
+      "دانشجویان رشته‌های کامپیوتر و فناوری اطلاعات",
+      "علاقه‌مندان به Serverless، DevOps و Cloud Native",
+      "افرادی که به آیندهٔ هوش مصنوعی و زیرساخت اجرای آن علاقه دارند",
+      "اعضای قدیمی Kerman LUG و کسانی که می‌خواهند به این جامعهٔ دوستانه بپیوندند"
+    ]
+  },
+  {
+    "number": 13,
+    "date": "2025-11-27",
+    "start_time": null,
+    "end_time": null,
+    "timezone": "Asia/Tehran",
+    "status": "announced",
+    "format": "in_person",
+    "venue": "کارخانهٔ نوآوری کرمان",
+    "address": null,
+    "map_url": null,
+    "online_url": null,
+    "registration_url": "https://evnd.co/GfU8g",
+    "description": "انقلاب متن‌باز؛ از ایده‌های رادیکال تا قدرت گرفتن گنو/لینوکس",
+    "agenda": [
+      {
+        "title": "انقلاب متن‌باز؛ از ایده‌های رادیکال تا قدرت گرفتن گنو/لینوکس",
+        "speaker": null,
+        "minutes": null
+      }
+    ],
+    "source_posts": [],
+    "notes": "ثبت‌نام رایگان است، اما برای هماهنگی بهتر استقبال از شرکت‌کنندگان درخواست شده بود. ساعت برگزاری و نام ارائه‌دهنده در متن ارائه‌شده مشخص نشده است.",
+    "slug": "meeting-13",
+    "title": "نشست سیزدهم کرمان‌لاگ",
+    "source_type": "user-supplied-announcement",
+    "host": "آوینوکس",
+    "details": [
+      "در این ارائه، نگاهی گذرا به داستان شکل‌گیری نرم‌افزار آزاد، ایده‌های بنیادینی که پشت آن بوده، نقش شخصیت‌هایی مثل ریچارد استالمن و لینوس توروالدز، و چگونگی تبدیل شدن لینوکس از یک پروژهٔ دانشجویی به زیرساخت اصلی اینترنت، کلود و بسیاری از سرویس‌های امروزی خواهیم داشت.",
+      "این ارائه به‌طور ویژه برای کاربران تازه‌کار و علاقه‌مندان جدید به دنیای لینوکس طراحی شده است."
+    ]
+  },
+  {
+    "number": 12,
+    "date": "2018-02-27",
+    "start_time": "17:20",
+    "end_time": "18:30",
+    "timezone": "Asia/Tehran",
+    "status": "announced",
+    "format": "in_person",
+    "venue": "کتابفروشی طاقچه",
+    "address": "میدان کوثر، ابتدای بولوار نصر، محوطهٔ شهرداری، کتابفروشی طاقچه",
+    "map_url": null,
+    "online_url": null,
+    "registration_url": null,
+    "description": "گردهمایی دوازدهم کرمان‌لاگ به میزبانی کتابفروشی طاقچه.",
+    "agenda": [],
+    "source_posts": [],
+    "notes": "سال میلادی اعلام‌شده ۲۰۱۸ است؛ ۸ اسفند در این سال برابر با ۸ اسفند ۱۳۹۶ است. موضوع یا ارائه‌دهنده در اطلاعیه مشخص نشده است.",
+    "slug": "meeting-12",
+    "title": "نشست دوازدهم کرمان‌لاگ",
+    "source_type": "user-supplied-announcement",
+    "host": "کتابفروشی طاقچه"
+  },
+  {
+    "number": 11,
+    "date": "2016-10-20",
+    "start_time": "16:30",
+    "end_time": "18:00",
+    "timezone": "Asia/Tehran",
+    "status": "announced",
+    "format": "in_person",
+    "venue": "مجتمع آموزشی رایان‌گرافیک",
+    "address": "ابتدای خیابان بهشتی، نبش خیابان ۲۴ آذر، مجتمع آموزشی رایان‌گرافیک",
+    "map_url": null,
+    "online_url": null,
+    "registration_url": null,
+    "description": "نشست یازدهم کرمان‌لاگ به میزبانی آموزشگاه رایان‌گرافیک.",
+    "agenda": [],
+    "source_posts": [],
+    "notes": "موضوع یا ارائه‌دهنده در اطلاعیه مشخص نشده است.",
+    "slug": "meeting-11",
+    "title": "نشست یازدهم کرمان‌لاگ",
+    "source_type": "user-supplied-announcement",
+    "host": "آموزشگاه رایان‌گرافیک"
+  },
+  {
+    "number": 10,
+    "date": "2016-09-15",
+    "start_time": "17:30",
+    "end_time": "19:00",
+    "timezone": "Asia/Tehran",
+    "status": "completed",
+    "format": "in_person",
+    "venue": null,
+    "address": null,
+    "map_url": null,
+    "online_url": null,
+    "registration_url": null,
+    "description": "کارگاه جاوا، آشنایی با KeePass و گفت‌وگو دربارهٔ فعالیت انجمن لینوکس دانشگاه باهنر و امکان برگزاری جشن انتشار اوبونتو.",
+    "agenda": [
+      {
+        "title": "آموزش زبان برنامه‌نویسی جاوا؛ بخش نخست",
+        "speaker": "آقای طوفانی",
+        "minutes": null
+      },
+      {
+        "title": "آشنایی با نرم‌افزار KeePass",
+        "speaker": "آقای صدر",
+        "minutes": null
+      },
+      {
+        "title": "بحث آزاد؛ فعالیت انجمن دانشگاه و جشن انتشار اوبونتو",
+        "speaker": null,
+        "minutes": null
+      }
+    ],
+    "source_posts": [
+      "2016-09-16-meetings-9-and-10"
+    ],
+    "notes": "طبق گزارش، ۱۰ نفر در این نشست حضور داشتند. مکان برگزاری در متن گزارش مشخص نشده است.",
+    "slug": "meeting-10",
+    "title": "نشست دهم کرمان‌لاگ"
+  },
+  {
+    "number": 9,
+    "date": "2016-07-21",
+    "start_time": null,
+    "end_time": null,
+    "timezone": "Asia/Tehran",
+    "status": "completed",
+    "format": "in_person",
+    "venue": null,
+    "address": null,
+    "map_url": null,
+    "online_url": null,
+    "registration_url": null,
+    "description": "دومین کارگاه مقدماتی گیت، آشنایی با بوردهای آردویینو و رزبری، و بحث دربارهٔ مشارکت اعضا در برگزاری نشست‌ها.",
+    "agenda": [
+      {
+        "title": "آموزش مقدماتی گیت؛ کارگاه دوم",
+        "speaker": "آقای صدر",
+        "minutes": 30
+      },
+      {
+        "title": "آشنایی با بوردهای آردویینو و رزبری",
+        "speaker": "آقای احمدی",
+        "minutes": 30
+      },
+      {
+        "title": "بحث آزاد؛ مشارکت اعضا در برگزاری نشست‌ها",
+        "speaker": null,
+        "minutes": null
+      }
+    ],
+    "source_posts": [
+      "2016-09-16-meetings-9-and-10"
+    ],
+    "notes": "طبق گزارش، ۱۱ نفر حضور داشتند. زمان و مکان دقیق در متن گزارش مشخص نشده است.",
+    "slug": "meeting-9",
+    "title": "نشست نهم کرمان‌لاگ"
+  },
+  {
+    "number": 8,
+    "date": "2016-06-16",
+    "start_time": null,
+    "end_time": null,
+    "timezone": "Asia/Tehran",
+    "status": "completed",
+    "format": "in_person",
+    "venue": "مجتمع آموزشی رایان‌گرافیک",
+    "address": null,
+    "map_url": null,
+    "online_url": null,
+    "registration_url": null,
+    "description": "آموزش مقدماتی Git، ارائهٔ «نرم‌افزار آزاد چیست» و گفت‌وگو دربارهٔ ادارهٔ لاگ.",
+    "agenda": [
+      {
+        "title": "آموزش مقدماتی Git",
+        "speaker": "آقای صدر",
+        "minutes": 45
+      },
+      {
+        "title": "نرم‌افزار آزاد چیست",
+        "speaker": "آقای حسینی",
+        "minutes": null
+      },
+      {
+        "title": "بحث آزاد؛ لاگ و نحوهٔ ادارهٔ آن",
+        "speaker": null,
+        "minutes": null
+      }
+    ],
+    "source_posts": [
+      "2016-06-26-meeting-8"
+    ],
+    "notes": "۱۱ نفر حضور داشتند. ارائهٔ آردویینو و رزبری به نشست بعد موکول شد.",
+    "slug": "meeting-8",
+    "title": "نشست هشتم کرمان‌لاگ"
+  },
+  {
+    "number": 7,
+    "date": "2016-05-19",
+    "start_time": "17:30",
+    "end_time": "19:30",
+    "timezone": "Asia/Tehran",
+    "status": "completed",
+    "format": "in_person",
+    "venue": "مؤسسهٔ رایان‌گرافیک",
+    "address": null,
+    "map_url": null,
+    "online_url": null,
+    "registration_url": null,
+    "description": "نمایش بخش‌هایی از ارائهٔ «ما جامعه‌ایم»، معرفی سایت‌های ایستا و Hugo، و بحث آزاد.",
+    "agenda": [
+      {
+        "title": "نمایش ویدیوی «ما جامعه‌ایم»",
+        "speaker": null,
+        "minutes": null
+      },
+      {
+        "title": "معرفی سایت ایستا و سایت‌ساز Hugo",
+        "speaker": null,
+        "minutes": null
+      },
+      {
+        "title": "بحث آزاد",
+        "speaker": null,
+        "minutes": null
+      }
+    ],
+    "source_posts": [
+      "2016-06-01-meeting-7"
+    ],
+    "notes": "طبق گزارش، ۱۴ نفر در نشست شرکت داشتند.",
+    "slug": "meeting-7",
+    "title": "نشست هفتم کرمان‌لاگ"
+  },
+  {
+    "number": null,
+    "date": "2013-12-19",
+    "start_time": "16:30",
+    "end_time": null,
+    "timezone": "Asia/Tehran",
+    "status": "announced",
+    "format": "in_person",
+    "venue": null,
+    "address": "میدان آزادی، ساختمان دکتر طهمورسی، طبقهٔ چهارم، واحد ۲۰۶",
+    "map_url": null,
+    "online_url": null,
+    "registration_url": null,
+    "description": "دعوت به یک دورهمی دوستانه به مناسبت یک‌سالگی گروه کاربران لینوکس کرمان.",
+    "agenda": [
+      {
+        "title": "بحث آزاد",
+        "speaker": null,
+        "minutes": null
+      }
+    ],
+    "source_posts": [
+      "2013-12-18-one-year-anniversary"
+    ],
+    "notes": "این اطلاعات از اطلاعیهٔ پیش از رویداد استخراج شده است؛ گزارش تأیید برگزاری در مطالب موجود نیست.",
+    "slug": "first-anniversary",
+    "title": "دورهمی یک‌سالگی گروه کاربران لینوکس کرمان"
+  },
+  {
+    "number": null,
+    "date": "2013-09-22",
+    "start_time": "18:00",
+    "end_time": "20:00",
+    "timezone": "Asia/Tehran",
+    "status": "completed",
+    "format": "in_person",
+    "venue": null,
+    "address": "بلوار جهاد، نرسیده به چهارراه اقبال، طبقهٔ پایین صندوق مس",
+    "map_url": null,
+    "online_url": null,
+    "registration_url": null,
+    "description": "رفع اشکالات نصب لینوکس، نصب برنامه‌های جانبی و دورهمی کاربران؛ حضور بدون قصد نصب هم آزاد بود.",
+    "agenda": [
+      {
+        "title": "رفع اشکالات نصب و نصب برنامه‌های لینوکسی",
+        "speaker": null,
+        "minutes": null
+      }
+    ],
+    "source_posts": [
+      "2013-09-23-second-install-fest-report",
+      "2013-09-20-second-install-fest"
+    ],
+    "notes": null,
+    "slug": "second-install-fest",
+    "title": "دومین فستیوال نصب لینوکس و برنامه‌های لینوکسی"
+  },
+  {
+    "number": null,
+    "date": "2013-09-01",
+    "start_time": "18:00",
+    "end_time": "20:00",
+    "timezone": "Asia/Tehran",
+    "status": "completed",
+    "format": "in_person",
+    "venue": null,
+    "address": "خیابان جهاد، نرسیده به چهارراه اقبال، ساختمان صندوق قرض‌الحسنهٔ مس، طبقهٔ سوم، واحد چهار",
+    "map_url": null,
+    "online_url": null,
+    "registration_url": null,
+    "description": "آشنایی با نکات پارتیشن‌بندی و نصب توزیع‌های لینوکس روی سیستم‌های شخصی با کمک اعضای لاگ.",
+    "agenda": [
+      {
+        "title": "نکات پارتیشن‌بندی و نصب توزیع‌های مختلف",
+        "speaker": "آقای حسینی",
+        "minutes": null
+      },
+      {
+        "title": "نصب توزیع‌های مورد علاقهٔ شرکت‌کنندگان",
+        "speaker": null,
+        "minutes": null
+      }
+    ],
+    "source_posts": [
+      "2013-09-01-install-fest-report",
+      "2013-08-31-linux-install-fest"
+    ],
+    "notes": "در اطلاعیه همراه داشتن لپ‌تاپ یا کیس با دست‌کم ۱۰ گیگابایت فضای خالی، یا فلش با دست‌کم ۲ گیگابایت فضا درخواست شده بود.",
+    "slug": "first-install-fest",
+    "title": "فستیوال نصب توزیع‌های مختلف لینوکس"
+  }
+]

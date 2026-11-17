@@ -1,0 +1,29 @@
+{
+  "number": null,
+  "date": null,
+  "start_time": null,
+  "end_time": null,
+  "timezone": "Asia/Tehran",
+  "status": "draft",
+  "format": "in_person",
+  "venue": null,
+  "address": null,
+  "map_url": null,
+  "online_url": null,
+  "registration_url": null,
+  "description": "توضیح کوتاه دربارهٔ نشست",
+  "agenda": [
+    {
+      "title": "موضوع ارائه",
+      "speaker": "نام ارائه‌دهنده",
+      "minutes": 30
+    }
+  ],
+  "source_posts": [],
+  "notes": null,
+  "slug": "new-session",
+  "title": "عنوان نشست آینده",
+  "host": null,
+  "details": [],
+  "audience": []
+}

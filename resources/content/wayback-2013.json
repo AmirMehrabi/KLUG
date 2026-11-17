@@ -1,0 +1,33 @@
+{
+  "source": "User-provided archive extracts",
+  "snapshot": "https://web.archive.org/web/20140118203056/http://www.klug.ir/",
+  "post_ids": [
+    "715",
+    "684",
+    "681",
+    "675",
+    "670"
+  ],
+  "assets": {
+    "https://web.archive.org/web/20140118203056im_/http://www.klug.ir/wp-content/uploads/2013/02/logos_linux_n43sa424-120x150.png": {
+      "status": "unavailable",
+      "reason": "<urlopen error _ssl.c:1012: The handshake operation timed out>"
+    },
+    "https://web.archive.org/web/20140116201719im_/http://www.klug.ir/wp-content/uploads/2013/09/image-300x224.jpeg": {
+      "status": "unavailable",
+      "reason": "<urlopen error _ssl.c:1012: The handshake operation timed out>"
+    },
+    "https://web.archive.org/web/20140118203056im_/http://www.klug.ir/wp-content/uploads/2013/09/1012523_232809136871511_338117967_n.jpg": {
+      "status": "unavailable",
+      "reason": "<urlopen error _ssl.c:1012: The handshake operation timed out>"
+    },
+    "https://web.archive.org/web/20140118203056im_/http://www.klug.ir/wp-content/uploads/2013/09/IMG_20130901_202729-300x225.jpg": {
+      "status": "unavailable",
+      "reason": "<urlopen error _ssl.c:1012: The handshake operation timed out>"
+    },
+    "https://web.archive.org/web/20140118203056im_/http://www.klug.ir/wp-content/uploads/2013/08/poster-300x168.png": {
+      "status": "unavailable",
+      "reason": "<urlopen error _ssl.c:1012: The handshake operation timed out>"
+    }
+  }
+}

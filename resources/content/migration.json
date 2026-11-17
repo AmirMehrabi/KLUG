@@ -1,0 +1,12 @@
+{
+  "source_repository": "https://github.com/emzi/kermanlug-blog",
+  "source_commit": "edbae2438bf1b0d4f8592f67d6646e1bef8d6ad7",
+  "published_posts": 9,
+  "homepage_source": "/var/www/html/kermanlug.github.io",
+  "faq_answers": 13,
+  "blog_images": 6,
+  "note": "Published posts only; drafts in older forks were not published.",
+  "original_blog_published_posts": 4,
+  "wordpress_archive_posts": 5,
+  "wordpress_archive_source": "User-provided extracts from the 2014-01-18 Wayback snapshot"
+}

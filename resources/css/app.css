@@ -1,0 +1,51 @@
+@import 'tailwindcss';
+@source '../views/**/*.blade.php';
+
+@font-face { font-family: Vazir; src: url('../fonts/Vazir.woff') format('woff'); font-weight: 400; font-display: swap; }
+@font-face { font-family: Vazir; src: url('../fonts/Vazir-Bold.woff') format('woff'); font-weight: 700; font-display: swap; }
+
+@theme {
+    --font-sans: Vazir, sans-serif;
+    --color-paper: #fafafa;
+    --color-ink: #202020;
+    --color-muted: #686868;
+    --color-leaf: #262626;
+    --color-line: #dedede;
+    --color-wash: #f0f0f0;
+}
+
+@layer base {
+    html { scroll-behavior: smooth; scroll-padding-top: 32px; }
+    body { background: var(--color-paper); color: var(--color-ink); }
+    a, button, summary { -webkit-tap-highlight-color: transparent; }
+    a, button { transition: color .2s, background-color .2s, border-color .2s; }
+    :focus-visible { outline: 2px solid var(--color-leaf); outline-offset: 6px; }
+    ::selection { background: #dcdcdc; color: #202020; }
+    summary { list-style: none; cursor: pointer; }
+    summary::-webkit-details-marker { display: none; }
+}
+
+[x-cloak] { display: none !important; }
+.shell { width: min(1120px, calc(100% - 64px)); margin-inline: auto; }
+.eyebrow { font-size: 12px; color: var(--color-leaf); }
+.terminal-art { background-image: radial-gradient(#b5b5b5 0.7px, transparent 0.7px); background-size: 16px 16px; }
+.faq-plus { transition: transform .2s; }
+details[open] .faq-plus { transform: rotate(45deg); }
+@media (max-width: 640px) { .shell { width: calc(100% - 40px); } }
+@media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    *, *::before, *::after { transition: none !important; }
+}
+
+.prose { font-size: 15px; line-height: 2.3; overflow-wrap: anywhere; }
+.prose > * + * { margin-top: 1.25rem; }
+.prose a { text-decoration: underline; text-underline-offset: 4px; color: var(--color-ink); }
+.prose a:hover { color: #707070; }
+.prose ul, .prose ol { padding-inline-start: 1.5rem; }
+.prose ul { list-style: disc; }
+.prose ol { list-style: decimal; }
+.prose h2 { font-size: 1.4rem; font-weight: 700; margin-top: 2rem; }
+.prose h3 { font-size: 1.1rem; font-weight: 700; margin-top: 1.75rem; }
+.prose img, .prose video { max-width: 100%; height: auto; border-radius: 6px; }
+.prose pre { direction: ltr; text-align: left; overflow-x: auto; padding: 1rem; background: var(--color-wash); font-size: 12px; line-height: 1.8; }
+.prose blockquote { border-inline-start: 2px solid var(--color-line); padding-inline-start: 1.25rem; color: var(--color-muted); }
