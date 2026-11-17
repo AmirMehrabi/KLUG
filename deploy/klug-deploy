@@ -58,7 +58,8 @@ chown -R ammir:www-data "$STAGED_RELEASE"
 find "$STAGED_RELEASE" -type d -exec chmod 755 {} +
 find "$STAGED_RELEASE" -type f -exec chmod 644 {} +
 chmod 755 "$STAGED_RELEASE/artisan"
-chmod -R 775 "$STAGED_RELEASE/bootstrap/cache"
+find "$STAGED_RELEASE/bootstrap/cache" -type d -exec chmod 775 {} +
+find "$STAGED_RELEASE/bootstrap/cache" -type f -exec chmod 664 {} +
 
 mv "$STAGED_RELEASE" "$RELEASE"
 
