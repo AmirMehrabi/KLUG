@@ -45,10 +45,12 @@ npm ci --no-audit --no-fund
 npm run build
 rm -rf node_modules
 
+mkdir -p "$STAGED_RELEASE/public/build/assets"
+for OLD_ASSETS in "$RELEASES"/*/public/build/assets; do
+    [[ -d "$OLD_ASSETS" ]] && cp -an "$OLD_ASSETS/." "$STAGED_RELEASE/public/build/assets/"
+done
+
 php artisan migrate --force
-php artisan config:cache
-php artisan route:cache
-php artisan view:cache
 
 if [[ ! -e "$STAGED_RELEASE/public/storage" ]]; then
     ln -s /var/www/klug/shared/storage/app/public "$STAGED_RELEASE/public/storage"
@@ -62,6 +64,11 @@ find "$STAGED_RELEASE/bootstrap/cache" -type d -exec chmod 775 {} +
 find "$STAGED_RELEASE/bootstrap/cache" -type f -exec chmod 664 {} +
 
 mv "$STAGED_RELEASE" "$RELEASE"
+cd "$RELEASE"
+php artisan config:cache
+php artisan route:cache
+php artisan view:clear
+php artisan view:cache
 
 PREVIOUS=""
 if [[ -L "$BASE/current" ]]; then
