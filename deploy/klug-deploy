@@ -31,7 +31,6 @@ if [[ "$HEAD_SHA" != "$SHA" ]]; then
     exit 0
 fi
 git -C "$WORK/repo" checkout --quiet --detach "$SHA"
-mkdir "$RELEASE"
 mkdir "$STAGED_RELEASE"
 git -C "$WORK/repo" archive "$SHA" | tar -x -C "$STAGED_RELEASE"
 
@@ -51,8 +50,8 @@ php artisan config:cache
 php artisan route:cache
 php artisan view:cache
 
-if [[ ! -e "$RELEASE/public/storage" ]]; then
-    ln -s /var/www/klug/shared/storage/app/public "$RELEASE/public/storage"
+if [[ ! -e "$STAGED_RELEASE/public/storage" ]]; then
+    ln -s /var/www/klug/shared/storage/app/public "$STAGED_RELEASE/public/storage"
 fi
 
 chown -R ammir:www-data "$STAGED_RELEASE"
