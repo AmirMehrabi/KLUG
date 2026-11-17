@@ -10,16 +10,19 @@ BASE=/var/www/klug
 RELEASES="$BASE/releases"
 RELEASE="$RELEASES/$SHA"
 WORK="$(mktemp -d "$BASE/.build-$SHA.XXXXXX")"
+STAGED_RELEASE="$WORK/release"
 LOCK="$BASE/shared/.deploy.lock"
 exec 9>"$LOCK"
 flock 9
 trap 'rm -rf "$WORK"' EXIT
 
 mkdir -p "$RELEASES"
-if [[ -e "$RELEASE" ]]; then
+ACTIVE_RELEASE="$(readlink -f "$BASE/current" 2>/dev/null || true)"
+if [[ "$ACTIVE_RELEASE" == "$RELEASE" ]]; then
     echo "Release $SHA already exists; skipping"
     exit 0
 fi
+rm -rf "$RELEASE"
 
 git clone --quiet --depth=1 --branch "$BRANCH" https://github.com/AmirMehrabi/KLUG.git "$WORK/repo"
 HEAD_SHA="$(git -C "$WORK/repo" rev-parse HEAD)"
@@ -29,14 +32,15 @@ if [[ "$HEAD_SHA" != "$SHA" ]]; then
 fi
 git -C "$WORK/repo" checkout --quiet --detach "$SHA"
 mkdir "$RELEASE"
-git -C "$WORK/repo" archive "$SHA" | tar -x -C "$RELEASE"
+mkdir "$STAGED_RELEASE"
+git -C "$WORK/repo" archive "$SHA" | tar -x -C "$STAGED_RELEASE"
 
-ln -s /var/www/klug/shared/.env "$RELEASE/.env"
-rm -rf "$RELEASE/storage"
-ln -s /var/www/klug/shared/storage "$RELEASE/storage"
-mkdir -p "$RELEASE/bootstrap/cache"
+ln -s /var/www/klug/shared/.env "$STAGED_RELEASE/.env"
+rm -rf "$STAGED_RELEASE/storage"
+ln -s /var/www/klug/shared/storage "$STAGED_RELEASE/storage"
+mkdir -p "$STAGED_RELEASE/bootstrap/cache"
 
-cd "$RELEASE"
+cd "$STAGED_RELEASE"
 composer install --no-dev --no-interaction --prefer-dist --optimize-autoloader
 npm ci --no-audit --no-fund
 npm run build
@@ -51,11 +55,13 @@ if [[ ! -e "$RELEASE/public/storage" ]]; then
     ln -s /var/www/klug/shared/storage/app/public "$RELEASE/public/storage"
 fi
 
-chown -R ammir:www-data "$RELEASE"
-find "$RELEASE" -type d -exec chmod 755 {} +
-find "$RELEASE" -type f -exec chmod 644 {} +
-chmod 755 "$RELEASE/artisan"
-chmod -R 775 /var/www/klug/shared/storage "$RELEASE/bootstrap/cache"
+chown -R ammir:www-data "$STAGED_RELEASE"
+find "$STAGED_RELEASE" -type d -exec chmod 755 {} +
+find "$STAGED_RELEASE" -type f -exec chmod 644 {} +
+chmod 755 "$STAGED_RELEASE/artisan"
+chmod -R 775 "$STAGED_RELEASE/bootstrap/cache"
+
+mv "$STAGED_RELEASE" "$RELEASE"
 
 PREVIOUS=""
 if [[ -L "$BASE/current" ]]; then
