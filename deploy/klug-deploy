@@ -8,7 +8,7 @@ BASE=/var/www/klug
 RELEASES="$BASE/releases"
 RELEASE="$RELEASES/$SHA"
 WORK="$(mktemp -d "$BASE/.build-$SHA.XXXXXX")"
-LOCK=/var/lock/klug-deploy.lock
+LOCK="$BASE/shared/.deploy.lock"
 exec 9>"$LOCK"
 flock 9
 trap 'rm -rf "$WORK"' EXIT
@@ -19,9 +19,8 @@ if [[ -e "$RELEASE" ]]; then
     exit 0
 fi
 
-git clone --quiet https://github.com/AmirMehrabi/KLUG.git "$WORK/repo"
-git -C "$WORK/repo" fetch --quiet origin master
-HEAD_SHA="$(git -C "$WORK/repo" rev-parse origin/master)"
+git clone --quiet --depth=1 --branch master https://github.com/AmirMehrabi/KLUG.git "$WORK/repo"
+HEAD_SHA="$(git -C "$WORK/repo" rev-parse HEAD)"
 if [[ "$HEAD_SHA" != "$SHA" ]]; then
     echo "Ignoring stale webhook for $SHA; main is now $HEAD_SHA"
     exit 0
@@ -75,5 +74,7 @@ if ! curl --fail --silent --show-error --max-time 20 --resolve klug.ir:443:127.0
 fi
 
 echo "Activated release $SHA"
+install -m 755 "$RELEASE/deploy/klug-deploy" "$BASE/shared/klug-deploy.next"
+mv -Tf "$BASE/shared/klug-deploy.next" "$BASE/shared/klug-deploy"
 find "$RELEASES" -mindepth 1 -maxdepth 1 -type d -printf '%T@ %p\n' \
     | sort -nr | tail -n +6 | cut -d' ' -f2- | xargs -r rm -rf

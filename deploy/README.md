@@ -13,6 +13,11 @@ The webhook receiver listens only on `127.0.0.1:9017`; Nginx exposes
 content type, and the **Just the push event** option. The receiver validates
 GitHub's SHA-256 HMAC and accepts pushes to `master` only.
 
+After each successful health check, the active deployment updates the
+persistent deploy script from that release. The webhook service uses cache and
+Composer directories under `shared/` so its systemd sandbox does not need
+access to a user's home directory.
+
 On the server, `/etc/klug-webhook.env` contains the webhook secret. Deployment
 logs are in `/var/log/klug-deploy.log`. The app environment lives at
 `/var/www/klug/shared/.env`; it is intentionally not stored in this repository.

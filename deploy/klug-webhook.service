@@ -7,6 +7,10 @@ Type=simple
 User=ammir
 Group=www-data
 EnvironmentFile=/etc/klug-webhook.env
+Environment=HOME=/var/www/klug/shared/home
+Environment=COMPOSER_HOME=/var/www/klug/shared/composer
+Environment=XDG_CACHE_HOME=/var/www/klug/shared/cache
+Environment=npm_config_cache=/var/www/klug/shared/npm-cache
 ExecStart=/usr/bin/python3 /var/www/klug/current/deploy/github_webhook.py
 Restart=on-failure
 RestartSec=3
