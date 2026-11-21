@@ -1,19 +1,25 @@
 const params = new URLSearchParams(location.search);
 const concepts = ['paper', 'terminal', 'calendar'];
 const concept = params.get('concept');
-const story = params.get('format') === 'story';
-const width = story ? 1080 : 1600;
-const height = story ? 1920 : 900;
+const formats = {
+    desktop: [1600, 900],
+    story: [1080, 1920],
+    mobile: [480, 380],
+    slider: [1535, 530],
+};
+const requestedFormat = params.get('format');
+const format = Object.hasOwn(formats, requestedFormat) ? requestedFormat : 'desktop';
+const [width, height] = formats[format];
 const poster = document.querySelector('.poster');
 const [day, month, year] = window.posterEvent.date.trim().split(/\s+/);
 const event = { ...window.posterEvent, day, month, year };
 
 poster.classList.add(concepts.includes(concept) ? concept : 'paper');
-poster.classList.toggle('story', story);
+poster.classList.add(format);
 
 for (const field of document.querySelectorAll('[data-event]')) {
     const value = event[field.dataset.event] ?? '';
-    if (field.dataset.event === 'time') field.hidden = !value;
+    if (!value) field.hidden = true;
     if (!field.hasAttribute('data-bidi')) {
         field.textContent = value;
         continue;
