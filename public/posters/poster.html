@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>پوستر نشست کرمان‌لاگ</title>
+    <link rel="stylesheet" href="poster.css?v=title-size">
+    <script src="event.js" defer></script>
+    <script src="poster.js" defer></script>
+</head>
+<body>
+    <main class="poster">
+        <header class="masthead">
+            <div class="brand">
+                <img src="../favicon.svg" alt="" width="48" height="48">
+                <div><strong>کرمان‌لاگ</strong><span class="mono" dir="ltr" lang="en">KERMAN LINUX USERS GROUP</span></div>
+            </div>
+            <p class="event-date"><span>نشست کرمان‌لاگ</span><strong data-event="date"></strong><span class="event-time" data-event="time"></span></p>
+        </header>
+
+        <section class="program" aria-labelledby="talk-title">
+            <div class="window-bar" dir="ltr" aria-hidden="true">
+                <span class="mono">klug: ~/sessions</span><span class="window-dots"><i></i><i></i><i></i></span>
+            </div>
+            <div class="talk">
+                <p class="eyebrow">ارائه</p>
+                <h1 id="talk-title" data-event="title" data-bidi></h1>
+                <p class="description" data-event="description" data-bidi></p>
+            </div>
+        </section>
+
+        <div class="date-panel" aria-hidden="true">
+            <span class="date-day" data-event="day"></span>
+            <div><span class="date-month" data-event="month"></span><span class="date-year" data-event="year"></span></div>
+        </div>
+
+        <figure class="speaker">
+            <div class="portrait"><img data-portrait alt=""></div>
+            <figcaption>
+                <span class="speaker-label">ارائه‌دهنده</span>
+                <strong data-event="speaker"></strong>
+                <p data-event="role"></p>
+            </figcaption>
+        </figure>
+
+        <footer class="footer"><span>گروه کاربران گنو/لینوکس کرمان</span><bdi class="mono" lang="en">klug.ir</bdi></footer>
+    </main>
+</body>
+</html>

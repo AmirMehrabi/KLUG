@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>KLUG event posters</title>
+    <link rel="stylesheet" href="../posters/poster.css">
+    <style>
+        body { background: var(--paper); color: var(--ink); font: 1rem/1.55 system-ui, sans-serif; }
+        main { width: min(1160px, calc(100% - 40px)); margin: 52px auto 72px; }
+        header { display: flex; align-items: center; gap: 16px; margin-bottom: 32px; }
+        h1 { margin: 0; font-size: clamp(1.7rem, 4vw, 2.4rem); line-height: 1.1; }
+        h2 { margin: 0 0 16px; font-size: 1.25rem; }
+        section { padding: 24px 0 32px; border-top: 1px solid var(--line); }
+        .pair { display: grid; grid-template-columns: minmax(0, 2.8fr) minmax(0, 1fr); gap: 16px; }
+        img { display: block; }
+        figure img { width: 100%; height: auto; border: 1px solid var(--line); border-radius: 6px; }
+        figcaption { margin-top: 10px; font-size: .875rem; color: var(--muted); }
+        a { color: var(--ink); text-underline-offset: 3px; }
+        details { padding-top: 24px; border-top: 1px solid var(--line); }
+        details p { max-width: 76ch; margin: 12px 0 0; }
+        summary { cursor: pointer; font-weight: 600; }
+        code { overflow-wrap: anywhere; }
+        @media (max-width: 600px) { .pair { grid-template-columns: 1fr; } figure.story-preview img { max-width: 270px; } }
+    </style>
+</head>
+<body>
+    <main>
+        <header><img src="../favicon.svg" width="44" height="44" alt=""><h1>KLUG event posters</h1></header>
+        <section aria-labelledby="paper">
+            <h2 id="paper">Paper</h2>
+            <div class="pair">
+                <figure>
+                    <a href="../posters/paper-desktop.png?v=title-size"><img src="../posters/paper-desktop.png?v=title-size" width="1600" height="900" alt="Paper poster with the talk on the right and the speaker portrait on a dotted panel"></a>
+                    <figcaption>Desktop · <a href="../posters/paper-desktop.png?v=title-size" download>PNG</a> · <a href="../posters/poster.html?concept=paper&amp;format=desktop&amp;v=title-size">Live preview</a></figcaption>
+                </figure>
+                <figure class="story-preview">
+                    <a href="../posters/paper-story.png?v=title-size"><img src="../posters/paper-story.png?v=title-size" width="1080" height="1920" alt="Paper Story with the speaker card below the talk"></a>
+                    <figcaption>Story · <a href="../posters/paper-story.png?v=title-size" download>PNG</a> · <a href="../posters/poster.html?concept=paper&amp;format=story&amp;v=title-size">Live preview</a></figcaption>
+                </figure>
+            </div>
+        </section>
+        <section aria-labelledby="terminal">
+            <h2 id="terminal">Terminal</h2>
+            <div class="pair">
+                <figure>
+                    <a href="../posters/terminal-desktop.png?v=title-size"><img src="../posters/terminal-desktop.png?v=title-size" width="1600" height="900" alt="Dark desktop poster with the talk framed in a terminal window"></a>
+                    <figcaption>Desktop · <a href="../posters/terminal-desktop.png?v=title-size" download>PNG</a> · <a href="../posters/poster.html?concept=terminal&amp;format=desktop&amp;v=title-size">Live preview</a></figcaption>
+                </figure>
+                <figure class="story-preview">
+                    <a href="../posters/terminal-story.png?v=title-size"><img src="../posters/terminal-story.png?v=title-size" width="1080" height="1920" alt="Dark terminal Story with the speaker below the terminal window"></a>
+                    <figcaption>Story · <a href="../posters/terminal-story.png?v=title-size" download>PNG</a> · <a href="../posters/poster.html?concept=terminal&amp;format=story&amp;v=title-size">Live preview</a></figcaption>
+                </figure>
+            </div>
+        </section>
+        <section aria-labelledby="calendar">
+            <h2 id="calendar">Calendar</h2>
+            <div class="pair">
+                <figure>
+                    <a href="../posters/calendar-desktop.png?v=title-size"><img src="../posters/calendar-desktop.png?v=title-size" width="1600" height="900" alt="Calendar poster with the event date in large Persian numerals"></a>
+                    <figcaption>Desktop · <a href="../posters/calendar-desktop.png?v=title-size" download>PNG</a> · <a href="../posters/poster.html?concept=calendar&amp;format=desktop&amp;v=title-size">Live preview</a></figcaption>
+                </figure>
+                <figure class="story-preview">
+                    <a href="../posters/calendar-story.png?v=title-size"><img src="../posters/calendar-story.png?v=title-size" width="1080" height="1920" alt="Calendar Story with a large date block above the talk"></a>
+                    <figcaption>Story · <a href="../posters/calendar-story.png?v=title-size" download>PNG</a> · <a href="../posters/poster.html?concept=calendar&amp;format=story&amp;v=title-size">Live preview</a></figcaption>
+                </figure>
+            </div>
+        </section>
+        <details>
+            <summary>Reuse for another event</summary>
+            <p>Edit <code>event.js</code> to update all six live previews. Enter the Solar Hijri date as <code>day month year</code> and set the time and portrait path. The portrait path is relative to <code>poster.html</code>.</p>
+            <p>To make new PNGs, open a live preview in Chrome DevTools device mode, set the viewport to 1600 × 900 for desktop or 1080 × 1920 for Story, and capture a screenshot at device pixel ratio 1.</p>
+        </details>
+    </main>
+</body>
+</html>
