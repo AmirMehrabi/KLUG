@@ -22,7 +22,17 @@ class PageController extends Controller
             return redirect()->route('blog.show', $post['slug'], 301);
         }
 
-        return view('welcome', ['posts' => $content->posts()->take(3), 'nextSession' => $sessions->upcoming()->first()]);
+        $nextSession = $sessions->upcoming()->first();
+
+        return view('welcome', [
+            'posts' => $content->posts()->take(3),
+            'nextSession' => $nextSession,
+            'latestPastSession' => $nextSession === null
+                ? $sessions->all()->first(fn (array $session): bool => $session['date'] !== null
+                    && in_array($session['status'], ['announced', 'completed'], true)
+                    && $session['date'] <= now($session['timezone'])->toDateString())
+                : null,
+        ]);
     }
 
     public function faq(LegacyContent $content): View

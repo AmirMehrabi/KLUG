@@ -54,6 +54,10 @@
                 @else
                     <p class="mt-5 text-sm leading-8 text-muted">زمان و مکان نشست بعدی هنوز اعلام نشده است. برای پیگیری برنامه‌ها و پیشنهاد ارائه یا میزبانی، با ما در تماس باشید.</p>
                     <a href="{{ route('contact') }}" class="mt-4 inline-block text-xs underline underline-offset-4">برای یک نشست همکاری کنیم ↖</a>
+                    @if ($latestPastSession)
+                        <h3 class="mt-8 text-base font-bold">آخرین نشست در آرشیو</h3>
+                        <x-session-card :session="$latestPastSession" />
+                    @endif
                 @endif
             </div>
         </section>
