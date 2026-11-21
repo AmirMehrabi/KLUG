@@ -1,7 +1,7 @@
 // Update this file to use all six layouts for another event.
 window.posterEvent = {
     meeting: 'شانزدهمین نشست کرمان‌لاگ',
-    date: '۵ آبان ۱۴۰۵',
+    date: '۵ آذر ۱۴۰۵',
     time: '۱۷:۳۰ تا ۱۹:۰۰',
     address: 'کرمان، بلوار جمهوری، خیابان صادقیه، کارخانه نوآوری کرمان',
     title: 'اجرای پایدار و نقش DBOS در معماری اپلیکیشن‌های مدرن',

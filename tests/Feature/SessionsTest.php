@@ -10,6 +10,8 @@ class SessionsTest extends TestCase
 {
     public function test_sessions_index_shows_twelve_distinct_events_in_event_date_order(): void
     {
+        $this->travelTo(new DateTimeImmutable('2026-11-27 12:00:00 Asia/Tehran'));
+
         $this->get('/sessions')->assertOk()->assertSee('12 گردهمایی ثبت‌شده')->assertSee('نشست‌های پیش رو')->assertSee('زمان و مکان نشست بعدی هنوز اعلام نشده است.')->assertSeeInOrder([
             'نشست شانزدهم کرمان‌لاگ',
             'نشست چهاردهم کرمان‌لاگ',
