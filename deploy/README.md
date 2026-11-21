@@ -21,3 +21,15 @@ access to a user's home directory.
 On the server, `/etc/klug-webhook.env` contains the webhook secret. Deployment
 logs are in `/var/log/klug-deploy.log`. The app environment lives at
 `/var/www/klug/shared/.env`; it is intentionally not stored in this repository.
+
+A systemd timer checks the tip of `master` every two minutes as a fallback
+for missed webhooks. It runs the same deploy script and uses the same release
+lock as the webhook receiver. Install or refresh it from the repository root:
+
+```sh
+sudo install -m 755 deploy/klug-deploy-sync /usr/local/sbin/klug-deploy-sync
+sudo install -m 644 deploy/klug-deploy-sync.{service,timer} /etc/systemd/system/
+sudo systemctl daemon-reload
+sudo systemctl enable --now klug-deploy-sync.timer
+journalctl -u klug-deploy-sync.service
+```

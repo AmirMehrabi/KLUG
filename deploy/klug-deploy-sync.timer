@@ -1,0 +1,10 @@
+[Unit]
+Description=Check the KLUG production branch when webhook deliveries are missed
+
+[Timer]
+OnBootSec=1min
+OnUnitInactiveSec=2min
+AccuracySec=10s
+
+[Install]
+WantedBy=timers.target

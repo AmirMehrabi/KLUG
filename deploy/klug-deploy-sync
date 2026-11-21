@@ -1,0 +1,12 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+base=/var/www/klug
+branch=master
+remote=https://github.com/AmirMehrabi/KLUG.git
+revision=$(git ls-remote --exit-code "$remote" "refs/heads/$branch")
+sha=${revision%%$'\t'*}
+
+if [[ $(readlink -f "$base/current") != "$base/releases/$sha" ]]; then
+    exec /usr/local/sbin/klug-deploy "$sha" "$branch"
+fi

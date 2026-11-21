@@ -8,9 +8,10 @@ use Tests\TestCase;
 
 class SessionsTest extends TestCase
 {
-    public function test_sessions_index_shows_eleven_distinct_events_in_event_date_order(): void
+    public function test_sessions_index_shows_twelve_distinct_events_in_event_date_order(): void
     {
-        $this->get('/sessions')->assertOk()->assertSee('11 گردهمایی ثبت‌شده')->assertSee('نشست‌های پیش رو')->assertSee('زمان و مکان نشست بعدی هنوز اعلام نشده است.')->assertSeeInOrder([
+        $this->get('/sessions')->assertOk()->assertSee('12 گردهمایی ثبت‌شده')->assertSee('نشست‌های پیش رو')->assertSee('زمان و مکان نشست بعدی هنوز اعلام نشده است.')->assertSeeInOrder([
+            'نشست شانزدهم کرمان‌لاگ',
             'نشست چهاردهم کرمان‌لاگ',
             'نشست سیزدهم کرمان‌لاگ',
             'نشست دوازدهم کرمان‌لاگ',

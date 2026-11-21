@@ -1,0 +1,19 @@
+[Unit]
+Description=Deploy the latest KLUG production revision if needed
+Wants=network-online.target
+After=network-online.target
+
+[Service]
+Type=oneshot
+User=ammir
+Group=www-data
+Environment=HOME=/var/www/klug/shared/home
+Environment=COMPOSER_HOME=/var/www/klug/shared/composer
+Environment=XDG_CACHE_HOME=/var/www/klug/shared/cache
+Environment=npm_config_cache=/var/www/klug/shared/npm-cache
+ExecStart=/bin/bash /usr/local/sbin/klug-deploy-sync
+NoNewPrivileges=true
+PrivateTmp=true
+ProtectSystem=strict
+ProtectHome=true
+ReadWritePaths=/var/www/klug
