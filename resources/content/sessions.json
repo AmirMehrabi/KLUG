@@ -5,7 +5,7 @@
     "start_time": "17:30",
     "end_time": "19:00",
     "timezone": "Asia/Tehran",
-    "status": "scheduled",
+    "status": "completed",
     "format": "in_person",
     "venue": null,
     "address": "کرمان، بلوار جمهوری، خیابان صادقیه، کارخانه نوآوری کرمان",
@@ -20,7 +20,7 @@
         "minutes": null
       }
     ],
-    "source_posts": [],
+    "source_posts": ["2026-11-27-meeting-16"],
     "notes": null,
     "slug": "meeting-16",
     "title": "نشست شانزدهم کرمان‌لاگ",

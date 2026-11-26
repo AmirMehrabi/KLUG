@@ -14,11 +14,13 @@
             @if ($post['image'])
                 <figure class="my-9"><a href="{{ $post['image'] }}" aria-label="نمایش تصویر اصلی: {{ $post['title'] }}"><img src="{{ $post['image'] }}" alt="{{ $post['title'] }}" class="w-full rounded-lg border border-line"></a><figcaption class="mt-3 text-center text-[11px] text-muted">تصویر اصلی نوشته · برای دیدن اندازهٔ کامل، تصویر را انتخاب کنید.</figcaption></figure>
             @endif
-            <p class="my-8 border-r-2 border-line pr-4 text-xs leading-7 text-muted">این نوشته از وبلاگ پیشین کرمان‌لاگ منتقل شده است. اطلاعیه‌ها و پیوندهای داخل متن مربوط به زمان انتشار آن هستند.
-                @isset ($post['source_url'])
-                    <a href="{{ $post['source_url'] }}" class="underline underline-offset-4">نسخهٔ بایگانی‌شدهٔ نوشته ↗</a>
-                @endisset
-            </p>
+            @if ($post['migrated'] ?? true)
+                <p class="my-8 border-r-2 border-line pr-4 text-xs leading-7 text-muted">این نوشته از وبلاگ پیشین کرمان‌لاگ منتقل شده است. اطلاعیه‌ها و پیوندهای داخل متن مربوط به زمان انتشار آن هستند.
+                    @isset ($post['source_url'])
+                        <a href="{{ $post['source_url'] }}" class="underline underline-offset-4">نسخهٔ بایگانی‌شدهٔ نوشته ↗</a>
+                    @endisset
+                </p>
+            @endif
             <div class="prose">{!! $post['html'] !!}</div>
             @isset ($post['archive_images'])
                 <section class="mt-9 border-t border-line pt-6" aria-labelledby="archive-images-title">
